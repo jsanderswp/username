@@ -9,13 +9,13 @@ read -p "Enter your username:" username
 valid="false"
 while [[ "$valid" == "false" ]]; do
         if [[ ! "$username" =~ ^[a-z] ]]; then
-                read -p "Username does not start with a lowercase letter. Please try again:" username
+                read -rp "Username does not start with a lowercase letter. Please try again:" username
         elif [[ ${#username} -lt 3 ]]; then
-                read -p "Username is less than three characters long. Please try again:" username
+                read -rp "Username is less than three characters long. Please try again:" username
         elif [[ ${#username} -gt 12 ]]; then
-                read -p "Username is more than 12 characters long. Please try again:" username
+                read -rp "Username is more than 12 characters long. Please try again:" username
         elif [[ "$username" =~ [^a-z0-9_] ]]; then
-                read -p "Username contains invalid characters. Please try again:" username
+                read -rp "Username contains invalid characters. Please try again:" username
         else
                 echo "Thank you. Have a great day!"
                 valid="true"
