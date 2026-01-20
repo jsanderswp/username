@@ -1,13 +1,13 @@
 # README for Username Validation Script
 
 ## Author Information
-- **Name:** [Your Full Name]
-- **Course:** [Course Number and Name]
+- **Name:** Jackson Sanders
+- **Course:** CPSC 298
 - **Assignment:** Username Validation
-- **Date:** [Date of Completion]
+- **Date:** 01/20/2026
 
 ## Program Description
-[Write 2-3 sentences in your own words describing what this script does and its purpose. Explain the problem it solves and how it works at a high level.]
+This script begins by describing username requirements to a user and prompting them for input. It then checks their username string against the requrements using regualr expressions. Users are provided error messages if they provide invalid input, and a thank you message if they provide valid input.
 
 ## Username Requirements
 This script validates usernames according to the following rules:
@@ -27,33 +27,34 @@ To test with the provided input file:
 ```
 
 ## How the Script Works
-[Explain in 3-5 sentences how your script validates usernames. Include information about:]
-- The use of the `while` loop
-- The `grep` command with extended regular expressions
-- The meaning of the `-E` and `-v` flags
-- The redirect `> /dev/null 2>&1`
+The while loop uses a variable called "valid" that is set to the value of "false". The loop will run as long as "valid" has this value. The first check that is made within the if statement is whether or not the username starts with a lowercase letter, which is made using the ^ character outside the brackets to denote the beginning of the string, and =~ (contains). The next two checks are for length, which make use of the -lt and -gt to check if the string is between 3 and 12 characters. Lastly, the final check is for if the string contains invalid characters, which is made with =~ and [] containing all valid characters.
 
 ## Regular Expression Pattern
-The validation uses the following regular expression pattern:
+The validation uses the following regular expression patterns:
 ```
-^[a-z][a-z0-9_]{2,11}$
+^[a-z]
+[^a-z0-9_]
 ```
-This pattern ensures that:
+These patterns ensure that:
 - The username starts with a lowercase letter `[a-z]`
 - The following characters are lowercase letters, digits, or underscores `[a-z0-9_]`
-- The total length is between 3 and 12 characters
+- The length checking was done with -gt and -lt
 
 ## Testing Results
-[Describe your testing process and results. Include:]
-- Example valid usernames you tested (at least two)
-- Example invalid usernames and why they fail (at least two)
-- How you used the username-input file to test
+I tried 6 different usernames.
+
+Jackson - failed
+jackson - passed
+us - failed
+usususususususususus - failed
+user& - failed
+jws123_456 - passed
 
 ## Challenges and Solutions
-[Optional: Describe any challenges you encountered while creating this script and how you solved them. This could include debugging issues, understanding regular expressions, or Git workflow problems.]
+I am just not perfectly familiar with bash script syntax yet, and so there were a lot of little errors I needed to clean up.
 
 ## Resources
-[List any resources you used (class slides, ChatGPT, etc.). Please refer to the course syllabus for more details on citations.]
+I used ChatGPT to debug after I had written the bulk of my script.
 
 ## License
 This project is part of coursework for Chapman University and is intended for educational purposes.
