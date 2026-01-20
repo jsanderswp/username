@@ -5,7 +5,7 @@ echo "Usernames must be between 3 and 12 characters long,"
 echo "start with a lowercase letter, and contain only"
 echo "lowercase letters, digits, and underscores."
 
-read -p "Enter your username:" username
+read -rp "Enter your username:" username
 valid="false"
 while [[ "$valid" == "false" ]]; do
         if [[ ! "$username" =~ ^[a-z] ]]; then
